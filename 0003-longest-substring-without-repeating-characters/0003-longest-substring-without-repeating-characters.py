@@ -14,14 +14,8 @@ class Solution(object):
                 else:
                     break
             lengths.append(len(result))
-            result = ""
 
         if len(lengths) > 0:
             return max(lengths)
         else:
             return 0
-        # else:
-        #     if s == " ":
-        #         return 1
-        #     else:
-        #         return 0
