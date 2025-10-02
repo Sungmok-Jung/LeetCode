@@ -20,8 +20,6 @@ class Solution(object):
                 max_ = max(max_, end - start + 1)
             else: 
                 seen[s[end]] = end
-                max_ = max(max_, end - start + 1)     
-            # print(seen)
-            # print(max_)       
+                max_ = max(max_, end - start + 1)        
         
         return max_
