@@ -12,7 +12,6 @@ class Solution(object):
                 if (s[j] not in result):
                     result += s[j]
                 else:
-                    # lengths.append(len(result))
                     break
             lengths.append(len(result))
             result = ""
@@ -20,7 +19,9 @@ class Solution(object):
         if len(lengths) > 0:
             return max(lengths)
         else:
-            if s == " ":
-                return 1
-            else:
-                return 0
+            return 0
+        # else:
+        #     if s == " ":
+        #         return 1
+        #     else:
+        #         return 0
