@@ -6,32 +6,22 @@ class Solution(object):
         """
         lengths = []
 
+        start = 0
+        # end = 0
+
+        max_ = 0
+        seen = {}
+
+        for end in range(len(s)):
+            if (s[end] in seen) and (seen[s[end]] >= start):
+                start = seen[s[end]] + 1
+                seen[s[end]] = end
+                
+                max_ = max(max_, end - start + 1)
+            else: 
+                seen[s[end]] = end
+                max_ = max(max_, end - start + 1)     
+            # print(seen)
+            # print(max_)       
         
-        i = 0 # start idx
-        while i < len(s):
-            result = ""
-            dup = False # duplicate idx
-            for j in range(i, len(s)):
-                
-                find = result.find(s[j])
-                
-                if (find == -1):
-                    result += s[j]
-                else: # find!
-                    i += find + 1
-                    dup = True
-                    break
-                
-            lengths.append(len(result))
-            if dup == False:
-                i = len(s)+1 # break from while loop
-
-        if len(lengths) > 0:
-            return max(lengths)
-        else:
-            return 0
-
-test = Solution()
-s = "abcabcbb"
-answer = test.lengthOfLongestSubstring(s)
-print(answer)
+        return max_
